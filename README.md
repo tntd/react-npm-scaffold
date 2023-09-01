@@ -3,7 +3,7 @@
 ## 生成ts脚手架
 #### 第1步
 ```bash
-create-react-app ts  --template typescript
+create-react-app my-app  --template typescript
 ```
 #### 第2步
 ```bash
