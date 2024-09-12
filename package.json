@@ -1,27 +1,73 @@
 {
-  "name": "react-npm-scaffold",
-  "version": "1.0.0",
-  "main": "dist/index.js",
-  "module": "dist/index.js",
-  "scripts": {
-    "start": "react-scripts start",
-    "build-examples": "react-scripts build",
-    "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject",
-    "build": "rm -rf dist && NODE_ENV=production babel src/lib --out-dir dist --copy-files --ignore __tests__,spec.js,test.js,__snapshots__"
-  },
-  "files": [
-    "dist"
-  ],
-  "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2",
-    "react-scripts": "1.1.4",
-    "react-test-renderer": "^16.3.2"
-  },
-  "peerDependencies": {
-    "react": "^16.3.2",
-    "react-dom": "^16.3.2"
-  }
+    "name": "ice-ts-app",
+    "version": "1.0.0",
+    "main": "dist/index.js",
+    "module": "dist/index.js",
+    "types": "dist/index.d.ts",
+    "scripts": {
+        "start": "react-scripts start",
+        "test": "react-scripts test",
+        "eject": "react-scripts eject",
+        "storybook": "storybook dev -p 6006",
+        "build-storybook": "storybook build",
+        "build-ts": "tsc -p tsconfig.build.json",
+        "build-css": "sass ./src/index.scss ./dist/index.css --no-source-map",
+        "clean": "rimraf ./dist",
+        "build": "npm run clean && npm run build-css && npm run build-ts",
+        "prepublishOnly": "npm run build"
+    },
+    "files": [
+        "dist"
+    ],
+    "license": "MIT",
+    "dependencies": {
+        "classnames": "^2.5.1"
+    },
+    "devDependencies": {
+        "@storybook/addon-essentials": "^8.2.2",
+        "@storybook/addon-interactions": "^8.2.2",
+        "@storybook/addon-links": "^8.2.2",
+        "@storybook/blocks": "^8.2.2",
+        "@storybook/preset-create-react-app": "^8.2.2",
+        "@storybook/react": "^8.2.2",
+        "@storybook/react-webpack5": "^8.2.2",
+        "@storybook/test": "^8.2.2",
+        "@testing-library/jest-dom": "^5.17.0",
+        "@testing-library/react": "^13.4.0",
+        "@testing-library/user-event": "^13.5.0",
+        "@types/jest": "^27.5.2",
+        "@types/node": "^16.18.101",
+        "@types/react": "^18.3.3",
+        "@types/react-dom": "^18.3.0",
+        "eslint-plugin-storybook": "^0.8.0",
+        "react-scripts": "5.0.1",
+        "rimraf": "^6.0.1",
+        "sass": "^1.77.6",
+        "storybook": "^8.2.2",
+        "typescript": "^4.9.5",
+        "webpack": "^5.93.0"
+    },
+    "peerDependencies": {
+        "react": ">=16.8.0",
+        "react-dom": ">=16.8.0"
+    },
+    "eslintConfig": {
+        "extends": [
+            "react-app",
+            "react-app/jest",
+            "plugin:storybook/recommended"
+        ]
+    },
+    "browserslist": {
+        "production": [
+            ">0.2%",
+            "not dead",
+            "not op_mini all"
+        ],
+        "development": [
+            "last 1 chrome version",
+            "last 1 firefox version",
+            "last 1 safari version"
+        ]
+    }
 }
